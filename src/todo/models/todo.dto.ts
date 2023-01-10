@@ -4,6 +4,12 @@ export interface TodoListBody {
   date: string;
 }
 
+export interface TodoListDeleteBody {
+  id: number;
+}
+
+export type TodoListUpdateBody = TodoListBody & TodoListDeleteBody;
+
 export interface TodoListDTO {
   id: number;
   subject: string;

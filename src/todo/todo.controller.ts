@@ -1,5 +1,9 @@
-import { Body, Controller, Get, Put } from '@nestjs/common';
-import { TodoListBody } from './models/todo.dto';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  TodoListBody,
+  TodoListDeleteBody,
+  TodoListUpdateBody,
+} from './models/todo.dto';
 import { TodoService } from './todo.service';
 
 @Controller('todo')
@@ -8,12 +12,21 @@ export class TodoController {
 
   @Get('list')
   async list() {
-    this.todoService.list();
-    return 'list';
+    return this.todoService.list();
   }
 
   @Put('add')
   async add(@Body() body: TodoListBody) {
-    this.todoService.add(body);
+    return this.todoService.add(body);
+  }
+
+  @Delete('delete')
+  async delete(@Body() body: TodoListDeleteBody) {
+    this.todoService.delete(body);
+  }
+
+  @Post('update')
+  async update(@Body() body: TodoListUpdateBody) {
+    this.todoService.update(body);
   }
 }
