@@ -22,11 +22,11 @@ export class TodoController {
 
   @Delete('delete')
   async delete(@Body() body: TodoListDeleteBody) {
-    this.todoService.delete(body);
+    return this.todoService.delete(body);
   }
 
   @Post('update')
   async update(@Body() body: TodoListUpdateBody) {
-    this.todoService.update(body);
+    return this.todoService.update(body);
   }
 }

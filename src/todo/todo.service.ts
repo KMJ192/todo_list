@@ -50,12 +50,12 @@ export class TodoService {
   async delete(body: TodoListDeleteBody) {
     const query = `DELETE FROM TODO_LIST.TODO_LIST WHERE id=${body.id};`;
     const [result] = await this.mySQLConnection.CP.query(query);
-    console.log(result);
+    return 1;
   }
 
   async update(body: TodoListUpdateBody) {
     const query = `UPDATE TODO_LIST.TODO_LIST SET subject='${body.subject}', content='${body.content}', date='${body.date}', update_date='${body.date}' WHERE id=${body.id}`;
     const [result] = await this.mySQLConnection.CP.query(query);
-    console.log(result);
+    return 1;
   }
 }

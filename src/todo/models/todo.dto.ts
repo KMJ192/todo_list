@@ -8,7 +8,9 @@ export interface TodoListDeleteBody {
   id: number;
 }
 
-export type TodoListUpdateBody = TodoListBody & TodoListDeleteBody;
+export type TodoListUpdateBody = TodoListBody & {
+  id: number;
+};
 
 export interface TodoListDTO {
   id: number;
